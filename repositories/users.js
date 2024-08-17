@@ -21,17 +21,19 @@ class UsersRepository {
             encoding: 'utf8' 
         });
         // Read its contents
-
         // Parse the contents
-
+        const data = JSON.parse(contents);
         // Return the parsed data
+        return data;
     }
 }
 
 const test = async () => {
     const repo = new UsersRepository('users.json');
 
-    await repo.getAll();
+    const users = await repo.getAll();
+
+    console.log(users);
 };
 
 test();
