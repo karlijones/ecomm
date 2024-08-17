@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 
 //app is an object that describes all the different things that our web server can do
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true}));
 //route handler
 app.get('/', (req, res) => {
     res.send(`
@@ -17,7 +19,7 @@ app.get('/', (req, res) => {
         `);
 });
 
-app.post('/', bodyParser.urlencoded({ extended: true}),(req, res) => {
+app.post('/', (req, res) => {
    console.log(req.body);
     res.send('Account created!!!');
 });
