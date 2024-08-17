@@ -15,9 +15,9 @@ class UsersRepository {
         
     }
 
-    checkForFile() {
+    async checkForFile() {
 
     }
 }
 
-new UsersRepository();
+const repo = new UsersRepository('users.json');
