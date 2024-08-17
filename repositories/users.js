@@ -15,8 +15,14 @@ class UsersRepository {
         
     }
 
-    async checkForFile() {
+    async getAll() {
+        // Open the file called this.filename
 
+        // Read its contents
+
+        // Parse the contents
+
+        // Return the parsed data
     }
 }
 
