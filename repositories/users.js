@@ -23,6 +23,13 @@ class UsersRepository {
         );
         
     }
+
+    async create(attrs) {
+        // { email: 'emailaddress@gmail.com', password: 'password' }
+        const records = await this.getAll();
+        records.push(attrs);
+        // write the updated 'records' array back to this.filename
+    }
 }
 
 const test = async () => {
