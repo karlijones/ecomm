@@ -14,6 +14,7 @@ app.use(cookieSession({
 app.get('/', (req, res) => {
     res.send(`
         <div>
+            Your id is: ${req.session.userId}
             <form method="POST">
                 <input placeholder="email" />
                 <input placeholder="password" />
