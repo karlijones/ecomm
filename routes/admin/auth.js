@@ -1,20 +1,11 @@
 const express = require('express');
 const usersRepo = require('../../repositories/users');
+const signupTemplate = require('../../views/admin/auth/signup');
 
 const router = express.Router();
 
 router.get('/signup', (req, res) => {
-    res.send(`
-        <div>
-            Your id is: ${req.session.userId}
-            <form method="POST">
-                <input placeholder="email" />
-                <input placeholder="password" />
-                <input placeholder="password confirmation" />
-                <button>Sign Up</button>
-            </form>
-        </div>
-        `);
+    res.send(signupTemplate({ req }));
 });
 
 router.post('/signup', async (req, res) => {
