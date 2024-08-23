@@ -1,6 +1,6 @@
 const express = require('express');
-const { check } = require('express-validator');
-//Destructuring here because we only want the check feature from express validatior
+const { check, validationResult } = require('express-validator');
+//Destructuring here because we only want the certain features from express validatior
 
 const usersRepo = require('../../repositories/users');
 const signupTemplate = require('../../views/admin/auth/signup');
@@ -27,7 +27,10 @@ router.post(
     .isLength({ min:4, max:20 })
     ], 
 async (req, res) => {
-   const { email, password, passwordConfirmation } = req.body;
+    const errors = validationResult(req);
+    console.log(errors);
+
+    const { email, password, passwordConfirmation } = req.body;
 
    const existingUser = await usersRepo.getOneBy({ email });
    if (existingUser) {
