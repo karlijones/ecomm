@@ -46,11 +46,6 @@ async (req, res) => {
 
     const { email, password, passwordConfirmation } = req.body;
 
- 
-
-   if (password !== passwordConfirmation) {
-    return res.send('Passwords must match');
-   }
 
    //Create a user in our user repo to represent this person
    const user = await usersRepo.create({email, password});
