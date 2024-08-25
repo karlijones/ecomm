@@ -1,8 +1,12 @@
 const layout = require('../layout');
 
 const getError = (errors, prop) => {
-    // prop === 'email' || 'password' || 'passwordConfirmation'
-    
+    try {
+        return errors.mapped()[prop].msg;
+    }   catch (err) {
+        return '';
+    }
+
 }
 
 module.exports = ({ req, errors }) => {
@@ -12,8 +16,11 @@ module.exports = ({ req, errors }) => {
             Your id is: ${req.session.userId}
             <form method="POST">
                 <input placeholder="email" />
+                ${getError(errors, 'email')}
                 <input placeholder="password" />
+                ${getError(errors, 'password')}
                 <input placeholder="password confirmation" />
+                ${getError(errors, 'passwordConfirmation')}
                 <button>Sign Up</button>
             </form>
         </div>
