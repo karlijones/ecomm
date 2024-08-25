@@ -1,6 +1,11 @@
 const layout = require('../layout');
 
-module.exports = ({ req }) => {
+const getError = (errors, prop) => {
+    // prop === 'email' || 'password' || 'passwordConfirmation'
+    
+}
+
+module.exports = ({ req, errors }) => {
     return layout({ 
         content: `
         <div>
