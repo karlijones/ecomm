@@ -15,7 +15,7 @@ router.get('/admin/products/new', (req, res) => {
     res.send(productsNewTemplate({}));
 });
 
-router.post('/admin/products/new', [requireTitle, requirePrice], (req, res) => {
+router.post('/admin/products/new', [requireTitle, requirePrice], upload, (req, res) => {
     const errors = validationResult(req);
     
     req.on('data', data => {
