@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const authRouter = require('./routes/admin/auth');
-const productsRouter = reqire('./routes/admin/routes/products');
+const productsRouter = require('./routes/admin/routes/products');
 
 //app is an object that describes all the different things that our web server can do
 const app = express();

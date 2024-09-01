@@ -47,7 +47,7 @@ module.exports = {
             throw new Error('Email not found!');
         }
     }),
-    requireValidPasswordForUser: check(password)
+    requireValidPasswordForUser: check('password')
     .trim()
     .custom(async (password, { req }) => {
         const user = await usersRepo.getOneBy({ email: req.body.email });
