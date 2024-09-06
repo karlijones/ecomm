@@ -40,4 +40,8 @@ router.get('/admin/products/:id/edit', requireAuth, async (req, res) => {
     }
 });
 
+router.post('/admin/products/:id/edit', requireAuth, async (req, res) => {
+
+});
+
 module.exports = router;
