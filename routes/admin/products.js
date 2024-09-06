@@ -29,8 +29,12 @@ async (req, res) => {
     res.redirect('/admin/products');
 });
 
-router.get('/admin/products/:id/edit', (req, res) => {
-    console.log(req.params.id);
+router.get('/admin/products/:id/edit', async (req, res) => {
+    const product = await productsRepo.getOne(req.params.id);
+
+    if (!product) {
+        return res.send('Product not found');
+    }
 });
 
 module.exports = router;
