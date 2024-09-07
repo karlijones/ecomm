@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/cart/products', (req, res) => {
     console.log(req.body.productId);
 
-    res.send('Product added');
+    res.send('Product added to cart');
 });
 
 //Receive a GET request to show all items in cart
