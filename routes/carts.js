@@ -35,7 +35,7 @@ router.post('/cart/products', async (req, res) => {
 });
 
 //Receive a GET request to show all items in cart
-router.get('/cart', (req, res) => {
+router.get('/cart', async (req, res) => {
     if (!req.session.cartId) {
        return res.redirect('/'); 
     }
