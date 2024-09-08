@@ -5,6 +5,10 @@ module.exports = ({ items }) => {
     for (let item of items) {
         totalPrice += item.quantity * item.product.price;
     }
+    //alternate option using reduce instead of for loop:
+    //const totalPrice = items.reduce((prev, item) => {
+    //   return prev + item.quantity * item.product.price;
+    //}, 0);
 
   const renderedItems = items
     .map(item => {
