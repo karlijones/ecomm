@@ -12,7 +12,8 @@ router.post('/cart/products', async (req, res) => {
         const cart = await cartsRepo.create({ items: [] });
         req.session.cartId = cart.id;
     } else {
-      // We have a cart! Let's get it from the respository.  
+      // We have a cart! Let's get it from the respository. 
+      const cart = await cartsRepo.getOne(req.session.cartId); 
     }
 
     //Either increment quantity for existing product
