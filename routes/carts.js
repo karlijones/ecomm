@@ -1,5 +1,5 @@
 const express = require('express');
-const cartsRepo = require('../carts');
+const cartsRepo = require('../repositories/carts');
 
 const router = express.Router();
 
@@ -17,6 +17,7 @@ router.post('/cart/products', async (req, res) => {
       cart = await cartsRepo.getOne(req.session.cartId); 
     }
 
+    console.log(cart);
     //Either increment quantity for existing product
     //OR add new product to items array
 
