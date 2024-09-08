@@ -25,8 +25,9 @@ router.post('/cart/products', async (req, res) => {
         //add new product id to items array
         cart.items.push({ id: req.body.productId, quantity: 1 });
     }
-    //Either increment quantity for existing product
-    //OR add new product to items array
+    await cartsRepo.update(cart.id, {
+        items: cart.items
+    });
 
     res.send('Product added to cart');
 });
